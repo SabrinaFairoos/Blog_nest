@@ -10,7 +10,7 @@
 // Update these values if your hosting provider gives you specific credentials.
 $db_host = getenv('DB_HOST') ?: '127.0.0.1';
 $db_port = getenv('DB_PORT') ?: '3306';
-$db_name = getenv('DB_NAME') ?: 'blog_nest';
+$db_name = getenv('DB_NAME') ?: 'blog_nest_db';
 $db_user = getenv('DB_USER') ?: 'root';
 $db_pass = getenv('DB_PASS') !== false ? getenv('DB_PASS') : '';
 
