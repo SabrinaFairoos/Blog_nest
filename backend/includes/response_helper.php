@@ -32,6 +32,9 @@ function send_json_response(bool $success, string $message, $data = null, int $h
 
     $response = [
         'success' => $success,
+        // 'status' is kept as an alias of 'success' for compatibility with the
+        // frontend JS (auth.js, app.js, editor.js), which reads json.status.
+        'status'  => $success,
         'message' => $message
     ];
 

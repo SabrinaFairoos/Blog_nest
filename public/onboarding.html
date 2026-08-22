@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to Blog_nest!">
+  <title>Welcome — Blog_nest</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    .onboarding-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background-image: linear-gradient(to bottom, rgba(31, 23, 18, 0.85), rgba(44, 33, 26, 0.98)), url('images/hero_bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #F6EFEA;
+    }
+
+    .onboarding-card {
+      background: rgba(38, 29, 23, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(224, 145, 103, 0.2);
+      border-radius: var(--radius-xl);
+      padding: 4rem 3rem;
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+    }
+
+    .onboarding-title {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    .onboarding-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      margin-bottom: 3.5rem;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .option-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(224, 145, 103, 0.15);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 1.5rem;
+      transition: all var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      color: #F6EFEA;
+    }
+
+    .option-card:hover {
+      background: rgba(224, 145, 103, 0.1);
+      border-color: var(--accent-primary);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .option-icon {
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .option-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .option-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    
+    @media (max-width: 768px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="onboarding-container">
+    <div class="onboarding-card">
+      <div class="logo-icon" style="margin: 0 auto 1.5rem; width: 64px; height: 64px; font-size: 2rem;">☕</div>
+      <h1 class="onboarding-title">Welcome to Blog_nest</h1>
+      <p class="onboarding-subtitle">Your account is ready. What would you like to do first?</p>
+
+      <div class="options-grid">
+        <a href="editor.html" class="option-card">
+          <div class="option-icon">✍️</div>
+          <div class="option-title">Write an Article</div>
+          <div class="option-desc">Start expressing your thoughts, tutorials, and insights using our Markdown editor.</div>
+        </a>
+
+        <a href="index.html" class="option-card">
+          <div class="option-icon">📖</div>
+          <div class="option-title">Explore Articles</div>
+          <div class="option-desc">Discover what others are writing about technology, design, and architecture.</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

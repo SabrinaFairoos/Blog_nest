@@ -90,8 +90,15 @@ try {
 
     $newUserId = (int)$pdo->lastInsertId();
 
+    // Automatically establish session for seamless UX
+    session_regenerate_id(true);
+    $_SESSION['user_id']  = $newUserId;
+    $_SESSION['username'] = $username;
+    $_SESSION['email']    = $email;
+    $_SESSION['role']     = 'user';
+
     // Return 201 Created
-    send_json_response(true, 'Registration successful. You can now log in.', [
+    send_json_response(true, 'Registration successful. Welcome to Blog_nest!', [
         'user' => [
             'id'       => $newUserId,
             'username' => $username,

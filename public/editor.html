@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Write or edit blog articles on Blog_nest.">
+  <title>Article Editor — Blog_nest</title>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Marked.js for Live Preview -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+  <!-- Site Header & Sticky Navbar -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="logo-brand">
+        <div class="logo-icon">☕</div>
+        <span>Blog_nest</span>
+      </a>
+
+      <div class="nav-actions" id="nav-actions">
+        <!-- Dynamically rendered by auth.js -->
+        <a href="index.html" class="nav-link">← Feed</a>
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Editor Main Layout -->
+  <main class="container editor-layout">
+    <div id="editor-alert"></div>
+
+    <form id="editor-form">
+      <div class="editor-header-bar">
+        <div>
+          <h1 class="editor-page-title" id="editor-page-title">Create New Article</h1>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Express your thoughts using Markdown formatting with live side-by-side preview.</p>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <a href="index.html" class="btn btn-secondary btn-sm">Cancel</a>
+          <button type="submit" id="publish-btn" class="btn btn-primary btn-sm">
+            <span id="publish-btn-text">Publish Article</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Post Title Input -->
+      <div class="editor-form-group title-input-wrapper">
+        <input 
+          type="text" 
+          id="post-title" 
+          class="editor-title-input" 
+          placeholder="Enter an engaging article title..." 
+          required 
+          autocomplete="off"
+        >
+      </div>
+
+      <!-- Markdown Formatting Toolbar -->
+      <div class="editor-toolbar">
+        <button type="button" class="toolbar-btn" data-action="h1" title="Heading 1">H1</button>
+        <button type="button" class="toolbar-btn" data-action="h2" title="Heading 2">H2</button>
+        <button type="button" class="toolbar-btn" data-action="h3" title="Heading 3">H3</button>
+        <div class="toolbar-divider"></div>
+        <button type="button" class="toolbar-btn" data-action="bold" title="Bold (Ctrl+B)"><strong>B</strong></button>
+        <button type="button" class="toolbar-btn" data-action="italic" title="Italic (Ctrl+I)"><em>I</em></button>
+        <button type="button" class="toolbar-btn" data-action="quote" title="Quote">❝</button>
+        <div class="toolbar-divider"></div>
+        <button type="button" class="toolbar-btn" data-action="code" title="Inline Code">`code`</button>
+        <button type="button" class="toolbar-btn" data-action="codeblock" title="Code Block">&lt;/&gt;</button>
+        <button type="button" class="toolbar-btn" data-action="list" title="List">• List</button>
+        <button type="button" class="toolbar-btn" data-action="link" title="Link">🔗 Link</button>
+        <button type="button" class="toolbar-btn" data-action="table" title="Table">▦ Table</button>
+      </div>
+
+      <!-- Split Pane Container -->
+      <div class="editor-split-container">
+        <!-- Textarea Editor -->
+        <div>
+          <textarea 
+            id="post-content" 
+            class="editor-textarea" 
+            placeholder="Write your article in Markdown here...&#10;&#10;Use ## for headings, **bold** for emphasis, - for lists, and ``` for code blocks."
+            required
+          ></textarea>
+        </div>
+
+        <!-- Live Markdown Preview -->
+        <div class="editor-preview-pane">
+          <div class="editor-preview-label">
+            <span>Live Article Preview</span>
+            <span style="font-size: 0.7rem; color: var(--accent-primary);">⚡ Real-time</span>
+          </div>
+          <h2 id="preview-title-render" style="font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 1rem; color: var(--text-primary);">Your Article Title</h2>
+          <div class="article-content" id="editor-preview-body">
+            <p style="color: var(--text-muted); font-style: italic;">Your live Markdown article preview will appear here...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editor Stats Footer -->
+      <div class="editor-stats-footer">
+        <div class="editor-stats-pills">
+          <span id="stat-word-count">0 words</span>
+          <span>•</span>
+          <span id="stat-char-count">0 chars</span>
+          <span>•</span>
+          <span id="stat-read-time">~1 min read</span>
+        </div>
+        <div style="font-size: 0.8rem; color: var(--text-muted);">
+          Tip: Press <kbd style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--border-color);">Ctrl+B</kbd> for bold, <kbd style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--border-color);">Ctrl+I</kbd> for italic.
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/auth.js"></script>
+  <script src="js/editor.js"></script>
+</body>
+</html>

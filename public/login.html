@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to your Blog_nest author account.">
+  <title>Sign In — Blog_nest</title>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Header & Sticky Navbar -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="logo-brand">
+        <div class="logo-icon">☕</div>
+        <span>Blog_nest</span>
+      </a>
+
+      <div class="nav-actions">
+        <a href="register.html" class="btn btn-primary btn-sm">Create Account</a>
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Login Form Wrapper -->
+  <main class="container auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-icon-badge">🔑</div>
+        <h1 class="auth-title">Welcome Back</h1>
+        <p class="auth-subtitle">Sign in to write, manage, and share your articles.</p>
+      </div>
+
+      <div id="auth-alert"></div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label" for="identifier">Username or Email</label>
+          <div class="input-with-icon">
+            <span class="input-icon">👤</span>
+            <input 
+              type="text" 
+              id="identifier" 
+              class="form-input" 
+              placeholder="e.g. john_doe or john@example.com" 
+              required 
+              autocomplete="username"
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <div class="input-with-icon">
+            <span class="input-icon">🔒</span>
+            <input 
+              type="password" 
+              id="password" 
+              class="form-input" 
+              placeholder="Enter your password" 
+              required 
+              autocomplete="current-password"
+            >
+            <button type="button" class="password-toggle-btn" data-target="password" aria-label="Toggle password visibility">👁️</button>
+          </div>
+        </div>
+
+        <button type="submit" id="login-submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+          <span>Sign In</span>
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        Don't have an account yet? <a href="register.html">Create one here</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/auth.js"></script>
+</body>
+</html>
